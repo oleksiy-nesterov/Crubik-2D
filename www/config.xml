@@ -56,8 +56,8 @@
     <preference name="backgroundcolor" value="0xff000000" />
     <preference name="orientation" value="landscape" />
     <preference name="autorotate" value="false" readonly="true" />
-
-    <!-- OTHER PREFERENCES -->
+    <preference name="ios-statusbarstyle" value="lightcontent" />
+    <preference name="exit-on-suspend" value="false" /> 
     <preference name="webviewbounce" value="false" />
     <preference name="target-device" value="universal" />
     <preference name="prerendered-icon" value="true" />
