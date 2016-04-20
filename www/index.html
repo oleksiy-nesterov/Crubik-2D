@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; img-src * cdvfile: content: data: blob:; media-src * cdvfile: content: data: blob:;">
+    <meta name="description" content="Crubik 2D is nice puzzle. You should play it on 2D surface. Just try new experience ;-) Copyright Nesterov Oleksiy, 2013" />
+    <meta name="keywords" content="Crubik,rubik,cubik,puzzle" />
+    <meta name="author" content="Oleksiy Nesterov, Webmotoric" />
+    <meta name="copyright" content="Oleksiy Nesterov, Webmotoric" />
+
+    <meta name="viewport" content="width=900, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- meta name="apple-itunes-app" content="app-id=XXXXXXXXX" / -->
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="MobileOptimized" content="900" />
+
+    <meta property="fb:app_id" content="684644111554321" />
+    <meta property="og:url" content="http://webmotoric-com.appspot.com/sandbox/production/Crubik2D" />
+    <meta property="og:image" content="http://webmotoric-com.appspot.com/sandbox/production/Crubik2D/icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Crubik 2D" />
+    <meta property="og:description" content="Crubik 2D is nice puzzle. You should play it on 2D surface. Just try new experience ;-)" />
+    <meta property="og:site_name" content="Crubik 2D" />
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="img/splashes-icons/16.png" />
+    <link rel="shortcut" type="image/png" href="img/splashes-icons/57.png" />
+
+    <link rel="apple-touch-icon-precomposed" href="img/splashes-icons/57.png" />
+    <link rel="apple-touch-icon"             href="img/splashes-icons/57.png" />
+    <link rel="apple-touch-icon"             href="img/splashes-icons/57.png" sizes="57x57" />
+    <link rel="apple-touch-icon"             href="img/splashes-icons/72.png" sizes="72x72" />
+    <link rel="apple-touch-icon"             href="img/splashes-icons/114.png" sizes="114x114" />
+    <link rel="apple-touch-startup-image"    href="img/splashes-icons/480X320.png" sizes="480x320" />
+    <link rel="apple-touch-startup-image"    href="img/splashes-icons/960X640.png" sizes="960x640" />
+    <link rel="apple-touch-startup-image"    href="img/splashes-icons/1024X768.png" sizes="1024x768"/>
+
+    <script type="text/javascript" src="js/crubik.js"></script>
+    <title>Crubik 2D</title>
+</head>
+<body>
+    <div id="hint">
+        <h2 class="mobile">Use two fingers to show menu</h2>
+        <h2 class="desktop">Double click to show menu</h2>
+        <a onclick="Popup.close(this)">I got you</a>
+    </div>
+    <div id="menu">
+        <h2>Your action?</h2>
+        <a onclick="Popup.show('webmotoric');Popup.close(this)">Webmotoric</a>
+        <a onclick="appSocialShare();Popup.close(this)">Share Crubik</a>
+        <a onclick="Game.reset();Popup.close(this)">New Crubik</a>
+        <a onclick="Game.shuffle();Popup.close(this)">Shuffle Crubik</a>
+        <a onclick="Popup.close(this)" class="invert">Cancel</a>
+    </div>
+    <div id="webmotoric">
+        <h2>About</h2>
+        <a onclick="appContactMe();Popup.close(this)">Email Webmotoric</a>
+        <a onclick="Popup.show('more');Popup.close(this)">More from Webmotoric</a>
+        <a onclick="Popup.close(this)" class="invert">Cancel</a>
+    </div>
+    <div id="more">
+        <h2>More from Webmotoric</h2>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle/id489645380?mt=8" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle.png" alt="PiPuzzle"/> Pi Puzzle</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-valentine/id497263989" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-v.png" alt="PiPuzzle"/> Pi Puzzle Valentine</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-flowers/id649369068" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-f.png" alt="PiPuzzle"/> Pi Puzzle Flowers</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-presidents/id670956588" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-p.png" alt="PiPuzzle"/> Pi Puzzle Presidents</a>
+        <a onclick="Popup.close(this)" class="invert">Cancel</a>
+    </div>
+    <div id="share">
+        <h2>Done! Share your result</h2>
+        <a onclick="appSocialShare(true);Popup.close(this)">Share</a>
+        <a onclick="Popup.close(this)" class="invert">Cancel</a>
+    </div>
+</body>
+<script>
+    window.appGetWindow = function(url, w, h){
+        var p =['location'], l = w ? (screen.width - w) / 2 >> 0 : 0, t = h ? (screen.height - h) / 2 >> 0 : 0;
+        w && p.push('width=' + w) && p.push('left=' + l);
+        h && p.push('height=' + h) && p.push('top=' + t);
+        var win = window.open(url, 'win' + new Date().getTime(), p.join(','));
+        win && win.focus && win.focus();
+        return win;
+    };
+    window.appSocialShare = function(isResult){
+        if(window.cordova && window.plugins.socialsharing){
+            window.plugins.socialsharing.share(
+                isResult ? 'I\'ve just completed a Crubik 2D puzzle ;-) and spent some time for this, but I think this is a nice exercise for one\'s mind.' : 'Crubik 2D is nice puzzle. You should play it on 2D surface. Just try new experience ;-)',
+                'Crubik 2D',
+                'http://webmotoric-com.appspot.com/sandbox/production/Crubik2D/img/share.png',
+                'https://www.facebook.com/crubik2d'
+            );
+        }else{
+            window.appGetWindow('https://facebook.com/sharer.php?u=' + encodeURIComponent(isResult ? 'http://webmotoric-com.appspot.com/sandbox/production/crubik2D/share.html' : 'https://www.facebook.com/crubik2d'), 600, 400);
+        };
+    };
+    window.appContactMe = function(){
+        window.open([
+            ['mailto', 'oleksiy'].join(':'), '.nesterov+',
+            ['crubik2d', 'gmail'].join('@'), '.com'
+        ].join(''), window.cordova ? '_system' : '_blank');
+    };
+    window.appOnInit = function(){
+        var steps = 0;
+        window.cordova && document.addEventListener('click', function(evt){
+            if(evt.target.nodeName == 'A' && evt.target.href){
+                window.open(evt.target.href, '_system');
+                evt.stopPropagation();
+                evt.preventDefault();
+                return false;
+            };
+        }, true);
+        Popup = {
+            activate : function(el, status){el = typeof(el) == 'string' ? document.getElementById(el) : el; el && el.classList && el.classList[status ? 'add' : 'remove']('active');},
+            close    : function(el){Popup.hide(el.parentElement, false);},
+            hideAll  : function(){[].forEach.call(document.querySelectorAll('body > div'), function(el){Popup.activate(el, false)});},
+            hide     : function(el){Popup.activate(el, false);},
+            show     : function(el){Popup.activate(el, true);}
+        };
+        Game = new Crubik({
+            cols           : 9,
+            rows           : 6,
+            width          : !!(/^app_runner/).test(window.name) ? 800 : 900,
+            onMenu         : function(){Popup.hideAll(); Popup.show('menu');},
+            onTurn         : function(){steps++; if(Game.check()){steps > 5 && Popup.show('share'); steps = 0;};},
+            onReset        : function(){steps = 0;},
+            onStartShuffle : function(){},
+            onEndShuffle   : function(){}
+        });
+        Popup.show('hint');
+    };
+    window.document.addEventListener('deviceready', window.appOnInit, false);
+</script>
+<script type="text/javascript" src="phonegap.js" onerror="window.appOnInit();"></script>
+</html>
