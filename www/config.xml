@@ -26,7 +26,6 @@
     <icon src="img/splashes-icons/32.png"  width="32"  height="32"  platform="webos" role="mini" />
 
     <splash src="splash.png" />
-
     <splash src="img/splashes-icons/ldpi.9.png"    platform="android" qualifier="ldpi" />             <!-- Android 200x320 -->
     <splash src="img/splashes-icons/ldpi.9.png"    platform="android" qualifier="mdpi" />             <!-- Android 320x480 -->
     <splash src="img/splashes-icons/hdpi.9.png"    platform="android" qualifier="hdpi" />             <!-- Android 480x800 -->
