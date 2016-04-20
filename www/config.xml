@@ -78,6 +78,8 @@
     <plugin name="cordova-plugin-whitelist"                  source="npm" spec="1.0.0" />
     <plugin name="cordova-plugin-x-socialsharing"            source="npm" />
     <plugin name="cordova-plugin-inappbrowser"               source="npm" />
+    
+    <config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true"><false /></config-file>
 
     <allow-intent href="*" />
     <allow-navigation href="*" />
