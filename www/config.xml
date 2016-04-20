@@ -54,6 +54,8 @@
     <preference name="android-minSdkVersion" value="15" />
     <preference name="fullscreen" value="true" />
     <preference name="backgroundcolor" value="0xff000000" />
+    <preference name="orientation" value="landscape" />
+    <preference name="autorotate" value="false" readonly="true" />
 
     <!-- OTHER PREFERENCES -->
     <preference name="webviewbounce" value="false" />
@@ -75,6 +77,7 @@
     <plugin name="cordova-plugin-whitelist"                  source="npm" spec="1.0.0" />
     <plugin name="cordova-plugin-x-socialsharing"            source="npm" />
     <plugin name="cordova-plugin-inappbrowser"               source="npm" />
+    <plugin name="cordova-plugin-wkwebview"                  source="npm" />
 
     <allow-intent href="*" />
     <allow-navigation href="*" />
