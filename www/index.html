@@ -117,12 +117,12 @@
                     typeof(evt.target.click) == 'function' && evt.target.click();
                     return stop(evt);
                 };
-            });
-            document.addEventListener('touchend', function(evt){
+            }, true);
+            document.addEventListener('click', function(evt){
                 if(evt.target.nodeName == 'A' && evt.target.href){
                     return stop(evt);
                 };
-            });
+            }, true);
         };
         Popup = {
             activate : function(el, status){el = typeof(el) == 'string' ? document.getElementById(el) : el; el && el.classList && el.classList[status ? 'add' : 'remove']('active');},
