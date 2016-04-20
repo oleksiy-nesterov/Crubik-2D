@@ -32,13 +32,20 @@
     <splash src="img/splashes-icons/hdpi.9.png"    platform="android" qualifier="hdpi" />             <!-- Android 480x800 -->
     <splash src="img/splashes-icons/xhdpi.9.png"   platform="android" qualifier="xhdpi" />            <!-- Android 720px1280 -->
     <splash src="img/splashes-icons/xhdpi.9.png"   platform="android" qualifier="xxhdpi" />           <!-- Android -->
-    <splash src="img/splashes-icons/480X320.png"   platform="ios"     width="480"  height="320" />    <!-- iPhone 3 -->
-    <splash src="img/splashes-icons/960X640.png"   platform="ios"     width="960"  height="640" />    <!-- iPhone 4 (2x) -->
-    <splash src="img/splashes-icons/1136X640.png"  platform="ios"     width="1136" height="640" />    <!-- iPhone 5 (2x) -->
-    <splash src="img/splashes-icons/1334X750.png"  platform="ios"     width="1334" height="750" />    <!-- iPhone 6 (2x) -->
-    <splash src="img/splashes-icons/1024X768.png"  platform="ios"     width="1024" height="768" />    <!-- iPad -->
+    <splash src="img/splashes-icons/480X320.png"   platform="ios"     width="480"  height="320"  />   <!-- iPhone 3 -->
+    <splash src="img/splashes-icons/320X480.png"   platform="ios"     width="320"  height="480"  />
+    <splash src="img/splashes-icons/960X640.png"   platform="ios"     width="960"  height="640"  />   <!-- iPhone 4 (2x) -->
+    <splash src="img/splashes-icons/640X960.png"   platform="ios"     width="640"  height="960"  />
+    <splash src="img/splashes-icons/1136X640.png"  platform="ios"     width="1136" height="640"  />   <!-- iPhone 5 (2x) -->
+    <splash src="img/splashes-icons/640X1136.png"  platform="ios"     width="640"  height="1136" />
+    <splash src="img/splashes-icons/1334X750.png"  platform="ios"     width="1334" height="750"  />   <!-- iPhone 6 (2x) -->
+    <splash src="img/splashes-icons/750X1334.png"  platform="ios"     width="750"  height="1334" />
+    <splash src="img/splashes-icons/1024X768.png"  platform="ios"     width="1024" height="768"  />   <!-- iPad -->
+    <splash src="img/splashes-icons/768X1024.png"  platform="ios"     width="768"  height="1024" />
     <splash src="img/splashes-icons/2048X1536.png" platform="ios"     width="2048" height="1536" />   <!-- iPad 2 (2x) -->
+    <splash src="img/splashes-icons/1536X2048.png" platform="ios"     width="1536" height="2048" />
     <splash src="img/splashes-icons/2208X1242.png" platform="ios"     width="2208" height="1242" />   <!-- iPhone 6 Plus (3x) -->
+    <splash src="img/splashes-icons/1242X2208.png" platform="ios"     width="1242" height="2208" />
 
     <platform name="ios" />
     <platform name="android" />
@@ -46,9 +53,8 @@
     <!-- GENERAL PREFERENCES -->
     <preference name="phonegap-version" value="cli-6.0.0" />
     <preference name="android-minSdkVersion" value="15" />
-    <preference name="autorotate" value="false" readonly="true" />
-    <preference name="backgroundcolor" value="0x000000" />
-    <preference name="Orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+    <preference name="backgroundcolor" value="0xff000000" />
 
     <!-- OTHER PREFERENCES -->
     <preference name="webviewbounce" value="false" />
@@ -56,10 +62,8 @@
     <preference name="prerendered-icon" value="true" />
     <preference name="detect-data-types" value="false" />
 	<preference name="stay-in-webview" value="false" />
-	<preference name="exit-on-suspend" value="false" />
-    <preference name="enableviewportscale" value="true" />
-    <preference name="disable-cursor" value="true" />
-
+    
+    <preference name="EnableViewportScale" value="true" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="1000" />
     <preference name="SplashShowOnlyFirstTime" value="true" />

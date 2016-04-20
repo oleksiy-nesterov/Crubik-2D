@@ -63,11 +63,11 @@
         <a onclick="Popup.close(this)" class="invert">Cancel</a>
     </div>
     <div id="more">
-        <h2>More from Webmotoric</h2>
+        <h2>Pi Puzzles from Webmotoric</h2>
         <a href="https://itunes.apple.com/us/app/pi-puzzle/id489645380?mt=8" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle.png" alt="PiPuzzle"/> Pi Puzzle</a>
-        <a href="https://itunes.apple.com/us/app/pi-puzzle-valentine/id497263989" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-v.png" alt="PiPuzzle"/> Pi Puzzle Valentine</a>
-        <a href="https://itunes.apple.com/us/app/pi-puzzle-flowers/id649369068" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-f.png" alt="PiPuzzle"/> Pi Puzzle Flowers</a>
-        <a href="https://itunes.apple.com/us/app/pi-puzzle-presidents/id670956588" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-p.png" alt="PiPuzzle"/> Pi Puzzle Presidents</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-valentine/id497263989" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-v.png" alt="PiPuzzle"/> Valentine</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-flowers/id649369068" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-f.png" alt="PiPuzzle"/> Flowers</a>
+        <a href="https://itunes.apple.com/us/app/pi-puzzle-presidents/id670956588" target="_blank" onclick="Popup.close(this)"><img src="img/pipuzzle-p.png" alt="PiPuzzle"/> Presidents</a>
         <a onclick="Popup.close(this)" class="invert">Cancel</a>
     </div>
     <div id="share">
@@ -105,9 +105,10 @@
     };
     window.appOnInit = function(){
         var steps = 0;
-        window.cordova && document.addEventListener('click', function(evt){
-            if(evt.target.nodeName == 'A' && evt.target.href){
-                window.open(evt.target.href, '_system');
+        window.cordova && document.addEventListener('touchstart', function(evt){
+            if(evt.target.nodeName == 'A'){
+                evt.target.href && window.open(evt.target.href, '_system');
+                typeof(evt.target.click) == 'function' && evt.target.click();
                 evt.stopPropagation();
                 evt.preventDefault();
                 return false;
