@@ -117,8 +117,8 @@
             var
             w = window.innerWidth > 0 ? window.innerWidth : screen.width,
             h = window.innerHeight > 0 ? window.innerHeight : screen.height;
-            if(w * rows / cols > h){return h * cols / rows;};
-            return w; 
+            if(w * rows / cols > h){w = h * cols / rows;};
+            return w * 0.9; 
         };
         if(window.cordova){
             document.addEventListener('touchstart', function(evt){

@@ -82,8 +82,10 @@ body > canvas{
     display:block;
     background-color:#242424;
     position:relative;
+    /*
     backface-visibility:hidden;
     transform:translateZ(0px) rotateZ(0deg);
     -webkit-backface-visibility:hidden;
     -webkit-transform:translateZ(0px) rotateZ(0deg);
+    */
 }
