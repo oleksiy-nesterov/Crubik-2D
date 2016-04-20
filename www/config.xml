@@ -48,6 +48,7 @@
 
     <platform name="ios" />
     <platform name="android" />
+    <preference name="permissions" value="none" />
 
     <!-- GENERAL PREFERENCES -->
     <preference name="phonegap-version" value="cli-6.0.0" />
