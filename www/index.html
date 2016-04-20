@@ -105,15 +105,25 @@
     };
     window.appOnInit = function(){
         var steps = 0;
-        window.cordova && document.addEventListener('touchstart', function(evt){
-            if(evt.target.nodeName == 'A'){
-                evt.target.href && window.open(evt.target.href, '_system');
-                typeof(evt.target.click) == 'function' && evt.target.click();
-                evt.stopPropagation();
-                evt.preventDefault();
+        if(window.cordova){
+            var stop = function(e){
+                e.stopPropagation();
+                e.preventDefault();
                 return false;
             };
-        }, true);
+            document.addEventListener('touchstart', function(evt){
+                if(evt.target.nodeName == 'A'){
+                    evt.target.href && window.open(evt.target.href, '_system');
+                    typeof(evt.target.click) == 'function' && evt.target.click();
+                    return stop(evt);
+                };
+            }, true);
+            document.addEventListener('touchend', function(evt){
+                if(evt.target.nodeName == 'A' && evt.target.href){
+                    return stop(evt);
+                };
+            }, true);
+        };
         Popup = {
             activate : function(el, status){el = typeof(el) == 'string' ? document.getElementById(el) : el; el && el.classList && el.classList[status ? 'add' : 'remove']('active');},
             close    : function(el){Popup.hide(el.parentElement, false);},
