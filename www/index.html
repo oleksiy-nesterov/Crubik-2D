@@ -8,7 +8,7 @@
     <meta name="author" content="Oleksiy Nesterov, Webmotoric" />
     <meta name="copyright" content="Oleksiy Nesterov, Webmotoric" />
 
-    <meta name="viewport" content="width=900, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!-- meta name="apple-itunes-app" content="app-id=XXXXXXXXX" / -->
@@ -104,13 +104,23 @@
         ].join(''), window.cordova ? '_system' : '_blank');
     };
     window.appOnInit = function(){
-        var steps = 0;
+        var
+        steps = 0,
+        cols = 9,
+        rows = 6,
+        stop = function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        },
+        width = function(){
+            var
+            w = window.innerWidth > 0 ? window.innerWidth : screen.width,
+            h = window.innerHeight > 0 ? window.innerHeight : screen.height;
+            if(w * rows / cols > h){return h * cols / rows;};
+            return w; 
+        };
         if(window.cordova){
-            var stop = function(e){
-                e.stopPropagation();
-                e.preventDefault();
-                return false;
-            };
             document.addEventListener('touchstart', function(evt){
                 if(evt.target.nodeName == 'A'){
                     evt.target.href && window.open(evt.target.href, '_system');
@@ -132,9 +142,9 @@
             show     : function(el){Popup.activate(el, true);}
         };
         Game = new Crubik({
-            cols           : 9,
-            rows           : 6,
-            width          : !!(/^app_runner/).test(window.name) ? 800 : 900,
+            cols           : cols,
+            rows           : rows,
+            width          : !!(/^app_runner/).test(window.name) ? 800 : window.cordova ? width() : 900,
             onMenu         : function(){Popup.hideAll(); Popup.show('menu');},
             onTurn         : function(){steps++; if(Game.check()){steps > 5 && Popup.show('share'); steps = 0;};},
             onReset        : function(){steps = 0;},
