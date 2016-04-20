@@ -10,7 +10,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="blackopaque" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-opaque" />
     <!-- meta name="apple-itunes-app" content="app-id=XXXXXXXXX" / -->
     <meta name="format-detection" content="address=no" />
     <meta name="format-detection" content="telephone=no" />
@@ -90,11 +90,11 @@
             window.plugins.socialsharing.share(
                 isResult ? 'I\'ve just completed a Crubik 2D puzzle ;-) and spent some time for this, but I think this is a nice exercise for one\'s mind.' : 'Crubik 2D is nice puzzle. You should play it on 2D surface. Just try new experience ;-)',
                 'Crubik 2D',
-                'http://webmotoric-com.appspot.com/sandbox/production/Crubik2D/img/share.png',
+                'http://webmotoric.com/sandbox/build/Crubik2D/img/share.png',
                 'https://www.facebook.com/crubik2d'
             );
         }else{
-            window.appGetWindow('https://facebook.com/sharer.php?u=' + encodeURIComponent(isResult ? 'http://webmotoric-com.appspot.com/sandbox/production/crubik2D/share.html' : 'https://www.facebook.com/crubik2d'), 600, 400);
+            window.appGetWindow('https://facebook.com/sharer.php?u=' + encodeURIComponent(isResult ? 'http://webmotoric.com/sandbox/build/Crubik2D/index.html' : 'https://www.facebook.com/crubik2d'), 600, 400);
         };
     };
     window.appContactMe = function(){
